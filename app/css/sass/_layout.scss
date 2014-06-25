@@ -1,0 +1,17 @@
+.board {
+	// padding: 2% 0;
+	margin: 0 auto;
+	height: 100%;
+	border: 5px solid rgba(0,0,0,0.5);
+}
+
+.row {
+	height: 10%;
+	width: 100%;
+}
+
+.space {
+	height: 100%;
+	width: 12.5%;
+	float: left;
+}
