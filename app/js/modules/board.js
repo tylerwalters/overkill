@@ -11,44 +11,47 @@ var board = $('.board'),
 		space, rows, columns;
 
 function buildBoard() {
+	// Set up board for portrait
 	if (orientation === 'portrait') {
 		rows = 10;
 		columns = 8;
 
-		board.css('height', '100%');
-
-
-
-		board.css('width', space.height() * columns + 10);
+		console.log('portrait');
 
 		for (i; i < 80; i++) {
-			if ((i % 2 !== 0)) {
-				board.append('<div class="white space ' + portraitArr[i] + '"></div>');
-			} else {
-				board.append('<div class="black space ' + portraitArr[i] + '"></div>');
-			}
-		}
-	}
-	else if (orientation === 'landscape') {
-		rows = 8;
-		columns = 10;
-
-		board.css('width', '100%');
-
-		space = $('.space');
-
-		space.css('width', (board.width() - 10) / 10);
-		space.css('height', (board.width() - 10) / 10);
-
-		board.css('height', space.height() * rows + 10);
-		
-		for (i; i < 80; i++) {
-			if ((i % 2 !== 0)) {
+			if (((i < 8 || i >= 16 && i < 24 || i >= 32 && i < 40 || i >= 48 && i < 56 || i >= 64 && i < 72) && i % 2 !== 0) || ((i >= 8 && i < 16 || i >= 24 && i < 32 || i >= 40 && i < 48 || i >= 56 && i < 64 || i >= 72 && i < 80) && i % 2 === 0)) {
 				board.append('<div class="white space ' + landscapeArr[i] + '"></div>');
 			} else {
 				board.append('<div class="black space ' + landscapeArr[i] + '"></div>');
 			}
 		}
+
+		space = $('.space');
+
+		board.css({width: '100%'});
+		space.css({width: Math.floor((board.width() - 10) / 8), height: Math.floor((board.width() - 10) / 8)});
+		board.css({height: space.height() * rows + 10, width: space.width() * columns + 10});
+	}
+	// Set up board for landscape
+	else if (orientation === 'landscape') {
+		rows = 8;
+		columns = 10;
+
+		console.log('landscape');
+		
+		for (i; i < 80; i++) {
+			if (((i < 10 || i >= 20 && i < 30 || i >= 40 && i < 50 || i >= 60 && i < 70) && i % 2 !== 0) || ((i >= 10 && i < 20 || i >= 30 && i < 40 || i >= 50 && i < 60 || i >= 70 && i < 80) && i % 2 === 0)) {
+				board.append('<div class="white space ' + landscapeArr[i] + '"></div>');
+			} else {
+				board.append('<div class="black space ' + landscapeArr[i] + '"></div>');
+			}
+		}
+
+		space = $('.space');
+
+		board.css({height: '100%'});
+		space.css({width: Math.floor((board.height() - 10) / 8), height: Math.floor((board.height() - 10) / 8)});
+		board.css({height: space.height() * rows + 10, width: space.width() * columns + 10});
 	}
 
 }
