@@ -6,7 +6,7 @@
 
 ## Board
 
-The board is a 8 x 10 grid with up to 3 obstacles on the board.
+The board is a 8 x 10 grid with up to 3 obstacles.
 
 ## Pieces
 
