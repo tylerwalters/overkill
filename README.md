@@ -2,6 +2,8 @@
 
 ## Overview
 
+A chess-inspired strategy game.
+
 ## Story
 
 ## Board
