@@ -82,5 +82,4 @@ function buildBoard(view) {
 		// sets the board height to the space height times the number of rows to correct for any extra space on the board outside of the spaces; resets the board width to space width times the number of columns;
 		board.css({height: space.height() * rows + 10, width: space.width() * columns + 10});
 	}
-
 }
